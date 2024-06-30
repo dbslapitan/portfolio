@@ -7,6 +7,9 @@
     display: flex;
     column-gap: 1.5rem;
 
+    @include tablet{
+    }
+
     @include desktop{
         display: block;
         background-color: $secondary;
