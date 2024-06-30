@@ -1,0 +1,33 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.navigation{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    &__toggle{
+        background-color: white;
+        border: none;
+        width: 3rem;
+        height: 3rem;
+
+        &:hover{
+            cursor: pointer;
+            background-color: $red;
+        }
+
+        &--open{
+            mask-image: url('../../../public/icons/close.svg');
+            background-color: $red;
+
+            &:hover{
+                background-color: white;
+            }
+        }
+
+        &--close{
+            mask-image: url('../../../public/icons/hamburger.svg');
+        }
+    }
+}
