@@ -1,13 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.scss";
-import Socials from "@/ui/socials/socials";
+import Landing from "@/ui/landing/landing";
 
 export default function Home() {
     return (
         <>
-            <Socials />
             <main>
-
+                <Landing />
             </main>
         </>
     );

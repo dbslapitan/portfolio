@@ -1,0 +1,18 @@
+.landing{
+    color: #FFFFFF;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    &__title{
+        text-transform: uppercase;
+    }
+
+    &__description{
+        max-width: 700px;
+    }
+}
