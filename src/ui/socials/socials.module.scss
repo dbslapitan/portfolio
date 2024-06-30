@@ -7,9 +7,9 @@
     display: flex;
     column-gap: 1.5rem;
 
-    @include tablet{
+    @include desktop{
         display: block;
-        background-color: $background-primary;
+        background-color: $secondary;
         position: absolute;
         top: 50%;
         margin-left: 2rem;
@@ -35,7 +35,7 @@
     &--github{
         mask-image: url('../../../public/icons/github.svg');
 
-        @include tablet{
+        @include desktop{
             margin-top: 2rem;
         }
     }
