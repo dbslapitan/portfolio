@@ -1,0 +1,28 @@
+.socials{
+    background-color: #161D2F;
+    padding: 2rem 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 2rem;
+
+    &__link{
+        background-color: white;
+        display: block;
+        width: 2rem;
+        height: 2rem;
+
+        &:hover{
+            background-color: #FC4747;
+        }
+    }
+
+    &--linkedin{
+        mask-image: url('../../../public/icons/linkedin.svg');
+    }
+
+    &--github{
+        margin-top: 2rem;
+        mask-image: url('../../../public/icons/github.svg');
+    }
+}
