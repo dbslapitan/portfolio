@@ -1,5 +1,8 @@
+@use '../styles/variables' as *;
+
 html{
     box-sizing: content-box;
+    scroll-behavior: smooth;
 }
 
 *{
@@ -10,4 +13,10 @@ html{
 
 body{
     background-color: #10141E;
+}
+
+.noise{
+    background: inherit;
+    background-image: url('../../public/svg/noise.svg');
+    background-size: contain;
 }
