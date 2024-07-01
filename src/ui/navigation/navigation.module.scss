@@ -6,11 +6,21 @@
     top: 2rem;
     right: 2rem;
 
+    @include desktop{
+        width: 100vw;
+        text-align: center;
+        right: 0;
+    }
+
     &__toggle{
         background-color: white;
         border: none;
         width: 3rem;
         height: 3rem;
+
+        @include desktop{
+            display: none;
+        }
 
         &:hover{
             cursor: pointer;
@@ -29,6 +39,74 @@
         &--close{
             mask-image: url('../../../public/icons/hamburger.svg');
             background-color: white;
+        }
+    }
+
+    &__item{
+        &:first-of-type{
+            .navigation__link{
+                padding-top: 2rem;
+                padding-bottom: 1rem;
+
+                @include desktop{
+                    padding: 0;
+                }
+            }
+        }
+
+        &:last-of-type{
+            .navigation__link{
+                padding-top: 1rem;
+                padding-bottom: 2rem;
+
+                @include desktop{
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    &__link{
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        display: block;
+        padding: 0.75rem 0;
+        font-weight: 800;
+        font-size: 2rem;
+
+        @include desktop{
+            padding: 0;
+        }
+    }
+
+    &__links{
+        list-style-type: none;
+        position: absolute;
+        text-align: center;
+        top: calc(100% + 0.5rem);
+        right: -2rem;
+        width: 100vw;
+        background-color: $secondary;
+        border-radius: 0.5rem;
+
+        @include desktop{
+            position: static;
+            display: flex;
+            flex-direction: row;
+            width: fit-content;
+            background-color: inherit;
+            column-gap: 3rem;
+            margin: auto;
+
+        }
+
+        &--hide{
+            display: none;
+
+            @include desktop{
+                display: flex;
+            }
         }
     }
 }
