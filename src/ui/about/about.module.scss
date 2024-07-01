@@ -1,4 +1,9 @@
 .about{
-    width: 100vw;   
-    height: 100vh;
+    width: 100vw;
+    color: white;
+
+    &-container{
+        padding-top: 7rem;
+        margin: 0 1rem;
+    }
 }
