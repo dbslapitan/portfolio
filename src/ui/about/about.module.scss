@@ -1,9 +1,37 @@
-.about{
-    width: 100vw;
-    color: white;
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
 
-    &-container{
-        padding-top: 7rem;
-        margin: 0 1rem;
+.about{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 1.5rem 1rem 1rem 1rem;
+
+    @include tablet{
+        padding: 3rem 4rem 2rem 4rem;
+    }
+
+    @include desktop{
+        height: 100vh;
+    }
+
+    &__paragraph{
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.7;
+        
+        @include tablet{
+            font-size: 1.125rem;
+        }
+    }
+
+    &__title{
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+
+        @include tablet{
+            font-size: 1.75rem;
+        }
     }
 }
