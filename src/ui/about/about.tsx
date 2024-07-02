@@ -1,7 +1,9 @@
 import style from './about.module.scss';
-import auth0 from '../../../public/icons/auth0.svg';
 
 export default function About(){
+
+    const exposedTech = ['C#', 'JAVA', 'Python', 'Angular', 'AWS', 'Springboot', 'ASP.NET', 'PostgreSQL', 'OpenAI'];
+
     return(
         <section id='about' className={`noise ${style['about']}`}>
             <h2 className={`${style['about__title']}`}>About Me</h2>
@@ -25,6 +27,17 @@ export default function About(){
                 <span className={`${style['about__tech']} ${style['about__tech--nextjs']}`}></span>
                 <span className={`${style['about__tech']} ${style['about__tech--git']}`}></span>
                 <span className={`${style['about__tech']} ${style['about__tech--auth0']}`}></span>
+            </section>
+
+            <section className={`${style['about__stack']}`}>
+                <h4 className={`${style['about__subtitle']} ${style['about__subtitle--small']}`}>Over the course of my education, I have also been exposed to these technologies and am willing to revisit them:</h4>
+                {
+                    exposedTech.map(tech => {
+                        return(
+                            <span className={`${style['about__expose']}`}>{tech}</span>
+                        );
+                    })
+                }
             </section>
         </section>
     );
