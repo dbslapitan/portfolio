@@ -34,7 +34,7 @@ export default function About(){
                 {
                     exposedTech.map(tech => {
                         return(
-                            <span className={`${style['about__expose']}`}>{tech}</span>
+                            <span key={tech} className={`${style['about__expose']}`}>{tech}</span>
                         );
                     })
                 }
