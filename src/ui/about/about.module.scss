@@ -3,7 +3,7 @@
 
 .about{
     color: white;
-    padding: 1.5rem 1rem 3rem 1rem;
+    padding: 4rem 1rem 3rem 1rem;
     min-height: 100vh;
 
     @include tablet{
@@ -37,6 +37,10 @@
         margin-top: 0.5rem;
         font-size: 1rem;
         line-height: 1.7;
+
+        &:first-of-type{
+            margin-top: 3rem;
+        }
         
         @include tablet{
             font-size: 1.125rem;

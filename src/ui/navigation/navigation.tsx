@@ -27,7 +27,7 @@ export default function Navigation(){
                     </Link>
                 </li>
                 <li className={`${style['navigation__item']}`}>
-                    <Link className={`${style['navigation__link']}`} href={`#`}>
+                    <Link className={`${style['navigation__link']}`} href={`#projects`} onClick={clickHandler}>
                         Projects
                     </Link>
                 </li>
