@@ -13,6 +13,7 @@
 
     @include desktop{
         height: 100vh;
+        padding: 8rem;
     }
 
     &__paragraph{
@@ -32,6 +33,89 @@
 
         @include tablet{
             font-size: 1.75rem;
+        }
+    }
+
+    &__subtitle{
+        font-size: 1rem;
+        margin: 1rem 0;
+        line-height: 1.5;
+
+        @include tablet{
+            font-size: 1.50rem;
+        }
+    }
+
+    &__stack{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    &__subtitle{
+        width: 100%;
+    }
+
+    &__tech{
+        display: block;
+        width: 6rem;
+        height: 6rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &--auth0{
+            background-image: url('../../../public/icons/auth0.svg');
+        }
+
+        &--css{
+            background-image: url('../../../public/icons/css.svg');
+        }
+
+        &--express{
+            background-image: url('../../../public/icons/express.svg');
+            background-color: white;
+        }
+
+        &--git{
+            background-image: url('../../../public/icons/git.svg');
+        }
+
+        &--html{
+            background-image: url('../../../public/icons/html.svg');
+        }
+
+        &--javascript{
+            background-image: url('../../../public/icons/javascript.svg');
+        }
+
+        &--mongodb{
+            background-image: url('../../../public/icons/mongodb.svg');
+        }
+
+        &--mysql{
+            background-image: url('../../../public/icons/mysql.svg');
+        }
+
+        &--react{
+            background-image: url('../../../public/icons/react.svg');
+        }
+
+        &--nextjs{
+            background-image: url('../../../public/icons/nextjs.svg');
+            background-color: white;
+        }
+
+        &--node{
+            background-image: url('../../../public/icons/nodejs.svg');
+        }
+
+        &--sass{
+            background-image: url('../../../public/icons/sass.svg');
+        }
+
+        &--typescript{
+            background-image: url('../../../public/icons/typescript.svg');
         }
     }
 }
