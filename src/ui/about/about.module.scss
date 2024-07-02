@@ -4,6 +4,7 @@
 .about{
     color: white;
     padding: 1.5rem 1rem 3rem 1rem;
+    min-height: 100vh;
 
     @include tablet{
         padding: 3rem 4rem 2rem 4rem;
@@ -14,18 +15,21 @@
         padding: 8rem;
         display: flex;
         column-gap: 2rem;
+        justify-content: center;
     }
 
     &__left{
         @include desktop{
-            max-width: 40rem;
+            width: 50%;
+            max-width: 50rem;
         }
     }
 
     &__right{
         @include desktop{
-            max-width: 100rem;
+            width: 50%;
             padding-top: 4rem;
+            max-width: 50rem;
         }
     }
 
