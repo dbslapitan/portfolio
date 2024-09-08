@@ -94,6 +94,10 @@
         &:hover{
             color: $red;
         }
+
+        &--selected{
+            color: $red;
+        }
     }
 
     &__links{
