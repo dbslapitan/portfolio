@@ -102,6 +102,11 @@
         border-radius: 0.5rem;
         justify-content: center;
 
+        @include tablet{
+            width: calc(100vw - 4rem);
+            right: 0;
+        }
+
         @include desktop{
             position: static;
             display: flex;
