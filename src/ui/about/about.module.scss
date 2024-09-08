@@ -11,8 +11,8 @@
     }
 
     @include desktop{
-        height: 100vh;
-        padding: 12rem 8rem 0 8rem;
+        min-height: 100vh;
+        padding: 8rem 8rem 4rem 8rem;
         display: flex;
         column-gap: 2rem;
         justify-content: center;
@@ -54,6 +54,10 @@
 
         @include tablet{
             font-size: 1.75rem;
+        }
+
+        @include desktop{
+            font-size: 2rem;
         }
     }
 
