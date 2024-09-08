@@ -3,17 +3,21 @@
 
 .projects{
     min-height: 100vh;
-    padding: 3rem 1rem 3rem 1rem;
+    padding: 4rem 1rem 3rem 1rem;
+
+    @include tablet{
+        padding: 3rem 4rem 2rem 4rem;
+    }
 
     &__header{
-        font-size: 2rem;
+        font-size: 1.25rem;
         line-height: 1.5;
         color: white;
         max-width: 60rem;
         margin: auto;
 
         @include tablet{
-            font-size: 2.5rem;
+            font-size: 1.75rem;
         }
 
         @include desktop{
