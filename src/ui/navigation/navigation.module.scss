@@ -15,7 +15,8 @@
         text-align: center;
         right: 0;
         left: 0;
-        top: 2.5rem;
+        top: 0;
+        padding: 3rem 0 1rem 0;
     }
 
     &__toggle{
@@ -113,7 +114,8 @@
             flex-direction: row;
             background-color: inherit;
             column-gap: 3rem;
-
+            top: 0;
+            width: 100vw;
         }
 
         &--hide{
