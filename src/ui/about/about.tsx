@@ -1,11 +1,19 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import style from './about.module.scss';
 
 export default function About(){
 
     const exposedTech = ['C#', 'JAVA', 'Python', 'Angular', 'AWS', 'Springboot', 'ASP.NET', 'PostgreSQL', 'OpenAI'];
+    const elementRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+            console.log("top", (elementRef.current as HTMLDivElement).getBoundingClientRect().top);
+    });
 
     return(
-        <div id='about' className={`noise ${style['about']}`}>
+        <div id='about' className={`noise ${style['about']}`} ref={elementRef}>
             <section className={`${style['about__left']}`}>
                 <h2 className={`${style['about__title']}`}>About Me</h2>
                 <p className={`${style['about__paragraph']}`}>I am a passionate and dedicated software engineer whose journey began with a childhood fascination for dismantling gadgets and exploring computer systems. Over the years, I have transformed that early curiosity into a robust career in software development.</p>
