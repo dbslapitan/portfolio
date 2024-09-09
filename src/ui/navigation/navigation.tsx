@@ -1,33 +1,54 @@
 'use client';
 
-import { MutableRefObject, useContext, useEffect, useState } from 'react';
+import { MouseEvent, MutableRefObject, useContext, useEffect, useState } from 'react';
 import style from './navigation.module.scss';
 import Link from 'next/link';
 import { NavContext } from '@/utils/provider';
+import { useRouter } from 'next/navigation';
 
 export default function Navigation(){
 
     const [isOpen, setIsOpen] = useState(false); 
-    const { selected, setSelected, aboutTop, projectsTop } = useContext(NavContext);
+    const { selected, setSelected, projectsTop, aboutTop } = useContext(NavContext);
+    const router = useRouter();
 
-    const clickHandler = (linkName: string) => {
+    const clickHandler = (event: MouseEvent, linkName: string) => {
+        event.preventDefault();
+        if(linkName === 'home'){
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        else if(linkName === "about"){
+            window.scrollTo({
+                top: (aboutTop as MutableRefObject<number>).current,
+                behavior: 'smooth'
+            });
+        }
+        else{
+            window.scrollTo({
+                top: (projectsTop as MutableRefObject<number>).current,
+                behavior: 'smooth'
+            });
+        }
         setIsOpen(!isOpen);
     }
 
     useEffect(() => {
-
         const calculateSelected = () => {
+            const aboutPoint = (aboutTop as MutableRefObject<number>).current;
             const projectsPoint = (projectsTop as MutableRefObject<number>).current;
             const screenHeight = window.innerHeight;
             const threshold = Math.floor(screenHeight * 0.5);
-            if(window.scrollY > threshold && window.scrollY <= (projectsPoint - threshold)){
-                setSelected("about");
+            if(window.scrollY >= 0 && window.scrollY <= (aboutPoint - threshold)){
+                setSelected('home');
             }
-            else if(window.scrollY > (projectsPoint - threshold)){
-                setSelected("projects")
+            else if((window.scrollY > (aboutPoint - threshold)) && (window.scrollY <= (projectsPoint - threshold))){
+                setSelected('about');
             }
             else{
-                setSelected("home");
+                setSelected('projects');
             }
         };
         
@@ -36,24 +57,24 @@ export default function Navigation(){
         document.addEventListener('scroll', () => {
             calculateSelected();
         })
-    }, []);
+    }, [projectsTop, setSelected]);
 
     return(
         <div className={`${style['navigation']}`}>
-            <button className={`${style['navigation__toggle']} ${isOpen ? style['navigation__toggle--open'] : style['navigation__toggle--close']}`} onClick={() => clickHandler(selected)}></button>
+            <button className={`${style['navigation__toggle']} ${isOpen ? style['navigation__toggle--open'] : style['navigation__toggle--close']}`} onClick={(event: MouseEvent) => clickHandler(event, selected)}></button>
             <ul className={`${style['navigation__links']} ${ isOpen ? '' : style['navigation__links--hide']}`}>
                 <li className={`${style['navigation__item']}`}>
-                    <Link className={`${style['navigation__link']} ${selected === 'home' ? style['navigation__link--selected'] :  ''}`} href={`#home`} onClick={() => clickHandler("home")}>
+                    <Link className={`${style['navigation__link']} ${selected === 'home' ? style['navigation__link--selected'] :  ''}`} href={`#home`} onClick={(event: MouseEvent) => clickHandler(event, 'home')}>
                         Home
                     </Link>
                 </li>
                 <li className={`${style['navigation__item']}`}>
-                    <Link className={`${style['navigation__link']} ${selected === 'about' ? style['navigation__link--selected'] :  ''}`} href={`#about`} onClick={() => clickHandler("about")}>
+                    <Link className={`${style['navigation__link']} ${selected === 'about' ? style['navigation__link--selected'] :  ''}`} href={`#about`} onClick={(event: MouseEvent) => clickHandler(event, 'about')}>
                         About
                     </Link>
                 </li>
                 <li className={`${style['navigation__item']}`}>
-                    <Link className={`${style['navigation__link']} ${selected === 'projects' ? style['navigation__link--selected'] :  ''}`} href={`#projects`} onClick={() => clickHandler("projects")}>
+                    <Link className={`${style['navigation__link']} ${selected === 'projects' ? style['navigation__link--selected'] :  ''}`} href={`#projects`} onClick={(event: MouseEvent) => clickHandler(event, 'projects')}>
                         Projects
                     </Link>
                 </li>

@@ -13,7 +13,7 @@ export default function About(){
 
     useEffect(() => {
         (aboutTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top;
-    }, []);
+    }, [aboutTop]);
 
     return(
         <div id='about' className={`noise ${style['about']}`} ref={elementRef}>

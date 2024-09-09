@@ -15,7 +15,7 @@ export default function Projects() {
 
     useEffect(() => {
         (projectsTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top;
-    }, []);
+    }, [projectsTop]);
 
     return (
         <section id='projects' className={`${style['projects']}`} ref={elementRef}>
