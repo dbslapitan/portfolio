@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { MutableRefObject, useContext, useEffect, useRef, useState } from 'react';
 import style from './about.module.scss';
+import { NavContext } from '@/utils/provider';
 
 export default function About(){
 
@@ -9,8 +10,16 @@ export default function About(){
     const elementRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-            console.log("top", (elementRef.current as HTMLDivElement).getBoundingClientRect().top);
-    });
+        document.addEventListener('scroll', () => {
+            console.log('height:', window.innerHeight);
+            console.log('scrollY:', window.scrollY);
+            console.log('half:', Math.floor(window.innerHeight / 2));
+            // const half = Math.floor(window.innerHeight / 2);
+            // if(((elementRef.current as HTMLDivElement).getBoundingClientRect().top - half) < window.scrollY){
+            //     console.log('About');
+            // }
+        });
+    }, []);
 
     return(
         <div id='about' className={`noise ${style['about']}`} ref={elementRef}>
