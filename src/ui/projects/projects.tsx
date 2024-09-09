@@ -1,14 +1,24 @@
+'use client';
+
 import style from './projects.module.scss';
 import kanban from '../../../public/images/kanban.png';
 import Image from 'next/image'
 import Link from 'next/link';
+import { MutableRefObject, useContext, useEffect, useRef } from 'react';
+import { NavContext } from '@/utils/provider';
 
 export default function Projects() {
 
     const kanbanStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'MongoDB', 'NextJS', 'Auth0'];
+    const elementRef = useRef<HTMLElement>(null);
+    const { projectsTop } = useContext(NavContext);
+
+    useEffect(() => {
+        (projectsTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top;
+    }, []);
 
     return (
-        <section id='projects' className={`${style['projects']}`}>
+        <section id='projects' className={`${style['projects']}`} ref={elementRef}>
             <h2 className={`${style['projects__header']}`}>Projects</h2>
             <section className={`${style['project']}`}>
                 <h3 className={`${style['project__title']}`}>Kanban</h3>

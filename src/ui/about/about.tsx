@@ -3,22 +3,16 @@
 import { MutableRefObject, useContext, useEffect, useRef, useState } from 'react';
 import style from './about.module.scss';
 import { NavContext } from '@/utils/provider';
+import { lockfilePatchPromise } from 'next/dist/build/swc';
 
 export default function About(){
 
     const exposedTech = ['C#', 'JAVA', 'Python', 'Angular', 'AWS', 'Springboot', 'ASP.NET', 'PostgreSQL', 'OpenAI'];
     const elementRef = useRef<HTMLDivElement>(null);
+    const { aboutTop } = useContext(NavContext);
 
     useEffect(() => {
-        document.addEventListener('scroll', () => {
-            console.log('height:', window.innerHeight);
-            console.log('scrollY:', window.scrollY);
-            console.log('half:', Math.floor(window.innerHeight / 2));
-            // const half = Math.floor(window.innerHeight / 2);
-            // if(((elementRef.current as HTMLDivElement).getBoundingClientRect().top - half) < window.scrollY){
-            //     console.log('About');
-            // }
-        });
+        (aboutTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top;
     }, []);
 
     return(

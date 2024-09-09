@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext, useEffect, useState } from 'react';
+import { MutableRefObject, useContext, useEffect, useState } from 'react';
 import style from './navigation.module.scss';
 import Link from 'next/link';
 import { NavContext } from '@/utils/provider';
@@ -8,14 +8,35 @@ import { NavContext } from '@/utils/provider';
 export default function Navigation(){
 
     const [isOpen, setIsOpen] = useState(false); 
-    const { selected, setSelected } = useContext(NavContext);
+    const { selected, setSelected, aboutTop, projectsTop } = useContext(NavContext);
 
     const clickHandler = (linkName: string) => {
-        if(linkName !== selected){
-            setSelected(linkName);
-        }
         setIsOpen(!isOpen);
     }
+
+    useEffect(() => {
+
+        const calculateSelected = () => {
+            const projectsPoint = (projectsTop as MutableRefObject<number>).current;
+            const screenHeight = window.innerHeight;
+            const threshold = Math.floor(screenHeight * 0.5);
+            if(window.scrollY > threshold && window.scrollY <= (projectsPoint - threshold)){
+                setSelected("about");
+            }
+            else if(window.scrollY > (projectsPoint - threshold)){
+                setSelected("projects")
+            }
+            else{
+                setSelected("home");
+            }
+        };
+        
+        calculateSelected();
+
+        document.addEventListener('scroll', () => {
+            calculateSelected();
+        })
+    }, []);
 
     return(
         <div className={`${style['navigation']}`}>
