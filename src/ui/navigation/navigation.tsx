@@ -10,7 +10,7 @@ export default function Navigation(){
 
     const [isOpen, setIsOpen] = useState(false); 
     const { selected, setSelected, projectsTop, aboutTop } = useContext(NavContext);
-    const router = useRouter();
+    const [isMounted, setIsMounted] = useState(false);
 
     const clickHandler = (event: MouseEvent, linkName: string) => {
         event.preventDefault();
@@ -36,6 +36,7 @@ export default function Navigation(){
     }
 
     useEffect(() => {
+        setIsMounted(true);
         const calculateSelected = () => {
             const aboutPoint = (aboutTop as MutableRefObject<number>).current;
             const projectsPoint = (projectsTop as MutableRefObject<number>).current;
@@ -54,10 +55,12 @@ export default function Navigation(){
         
         calculateSelected();
 
-        document.addEventListener('scroll', () => {
-            calculateSelected();
-        })
-    }, [projectsTop, setSelected]);
+        if(isMounted){
+            document.addEventListener('scroll', () => {
+                calculateSelected();
+            })
+        }
+    }, [projectsTop, setSelected, isMounted]);
 
     return(
         <div className={`${style['navigation']}`}>
