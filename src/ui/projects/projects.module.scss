@@ -114,4 +114,16 @@
             color: $red;
         }
     }
+
+    &__repositories{
+        display: flex;
+    }
+
+    &__repository{
+        width: 50%;
+
+        &:first-of-type{
+            border-right: 1px solid #6b6969;
+        }
+    }
 }

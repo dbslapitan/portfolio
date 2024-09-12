@@ -3,6 +3,7 @@
 import style from './projects.module.scss';
 import kanban from '../../../public/images/kanban.png';
 import nomi from '../../../public/images/nomi.gif';
+import profeng from '../../../public/images/profeng.png';
 import Image from 'next/image';
 import { MutableRefObject, useContext, useEffect, useRef } from 'react';
 import { NavContext } from '@/utils/provider';
@@ -11,6 +12,7 @@ export default function Projects() {
 
     const kanbanStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'MongoDB', 'NextJS', 'Auth0'];
     const nomiStack = ['React', 'Javascript', 'NodeJS', 'Express', 'MySQL'];
+    const profengStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'MongoDB', 'NextJS', 'OpenAI'];
     const elementRef = useRef<HTMLElement>(null);
     const { projectsTop } = useContext(NavContext);
 
@@ -45,10 +47,10 @@ export default function Projects() {
             <section className={`${style['project']}`}>
                 <h3 className={`${style['project__title']}`}>NOMI</h3>
                 <div className={`${style['project__left']}`}>
-                    <Image className={`${style['project__image']} noise`} src={nomi} alt="Kanban homepage screenshot" priority />
+                    <Image className={`${style['project__image']} noise`} src={nomi} alt="NOMI gif" priority />
                 </div>
                 <div className={`${style['project__right']}`}>
-                    <p className={`${style['project__description']}`}>A chatbot for Shopify that supports merchants in streamlining product return processes, helping them improve customer satisfaction.</p>
+                    <p className={`${style['project__description']}`}>Industry project with Shopify: Collaborated with UX/UI designers, data scientists, and cybersecurity experts to develop a menu-based chatbot that supports merchants in streamlining product return processes, enhancing customer satisfaction.</p>
                     <div className={`${style['project__stack']}`}>
                         {
                             nomiStack.map(tech => {
@@ -59,6 +61,30 @@ export default function Projects() {
                                 );
                             })
                         }
+                    </div>
+                </div>
+            </section>
+            <section className={`${style['project']}`}>
+                <h3 className={`${style['project__title']}`}>ProfEng</h3>
+                <div className={`${style['project__left']}`}>
+                    <Image className={`${style['project__image']} noise`} src={profeng} alt="ProfEng" priority />
+                </div>
+                <div className={`${style['project__right']}`}>
+                    <p className={`${style['project__description']}`}>A full-stack web application designed to enhance users&apos; English communication skills—reading and writing—by utilizing OpenAI for essay feedback.</p>
+                    <div className={`${style['project__stack']}`}>
+                        {
+                            profengStack.map(tech => {
+                                return (
+                                    <span key={tech} className={`${style['project__tech']}`}>
+                                        {tech}
+                                    </span>
+                                );
+                            })
+                        }
+                    </div>
+                    <div className={`${style['project__repositories']}`}>
+                        <a className={`${style['project__link']} ${style['project__repository']}`} href='https://github.com/dbslapitan/profeng-front' target='_blank'>Frontend Repository</a>
+                        <a className={`${style['project__link']} ${style['project__repository']}`} href='https://github.com/dbslapitan/profeng-back' target='_blank'>Backend Repository</a>
                     </div>
                 </div>
             </section>
