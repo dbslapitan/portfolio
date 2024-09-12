@@ -60,7 +60,7 @@ export default function Navigation(){
                 calculateSelected();
             })
         }
-    }, [projectsTop, setSelected, isMounted]);
+    }, [projectsTop, setSelected, isMounted, aboutTop]);
 
     return(
         <div className={`${style['navigation']}`}>
