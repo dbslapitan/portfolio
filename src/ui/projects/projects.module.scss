@@ -7,14 +7,17 @@
 
     @include tablet{
         padding: 3rem 4rem 2rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
     }
 
     &__header{
         font-size: 1.25rem;
         line-height: 1.5;
         color: white;
-        max-width: 60rem;
-        margin: auto;
+        width: 100%;
 
         @include tablet{
             font-size: 1.75rem;
@@ -26,7 +29,7 @@
     }
 
     @include desktop{
-        padding-top: 8rem;
+        padding: 8rem 8rem 4rem 8rem;
     }
 }
 
@@ -34,8 +37,7 @@
     color: white;
     background-color: #292c2e;
     border-radius: 0.75rem 0.75rem 0 0;
-    max-width: 70rem;
-    margin: auto;
+    max-width: 60rem;
 
     &:first-of-type{
         margin-top: 3rem;
@@ -55,6 +57,10 @@
         @include tablet{
             font-size: 2rem;
             padding: 1rem;
+        }
+
+        @include desktop{
+            width: 100%;
         }
     }
 

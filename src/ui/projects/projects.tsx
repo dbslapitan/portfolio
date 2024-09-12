@@ -25,7 +25,7 @@ export default function Projects() {
                 <div className={`${style['project__left']}`}>
                     <Image className={`${style['project__image']}`} src={kanban} alt="Kanban homepage screenshot" priority />
                 </div>
-                <div>
+                <div className={`${style['project__right']}`}>
                     <p className={`${style['project__description']}`}>A task management app with a light/dark mode toggle, integrated authentication, added functionality for board editors, and implemented drag-and-drop functionality.</p>
                     <div className={`${style['project__stack']}`}>
                         {
