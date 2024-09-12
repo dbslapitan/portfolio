@@ -2,14 +2,15 @@
 
 import style from './projects.module.scss';
 import kanban from '../../../public/images/kanban.png';
-import Image from 'next/image'
-import Link from 'next/link';
+import nomi from '../../../public/images/nomi.gif';
+import Image from 'next/image';
 import { MutableRefObject, useContext, useEffect, useRef } from 'react';
 import { NavContext } from '@/utils/provider';
 
 export default function Projects() {
 
     const kanbanStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'MongoDB', 'NextJS', 'Auth0'];
+    const nomiStack = ['React', 'Javascript', 'NodeJS', 'Express', 'MySQL'];
     const elementRef = useRef<HTMLElement>(null);
     const { projectsTop } = useContext(NavContext);
 
@@ -39,6 +40,26 @@ export default function Projects() {
                         }
                     </div>
                     <a className={`${style['project__link']}`} href='https://kanban.dblapitan.dev' target='_blank'>Preview Site</a>
+                </div>
+            </section>
+            <section className={`${style['project']}`}>
+                <h3 className={`${style['project__title']}`}>NOMI</h3>
+                <div className={`${style['project__left']}`}>
+                    <Image className={`${style['project__image']} noise`} src={nomi} alt="Kanban homepage screenshot" priority />
+                </div>
+                <div className={`${style['project__right']}`}>
+                    <p className={`${style['project__description']}`}>A chatbot for Shopify that supports merchants in streamlining product return processes, helping them improve customer satisfaction.</p>
+                    <div className={`${style['project__stack']}`}>
+                        {
+                            nomiStack.map(tech => {
+                                return (
+                                    <span key={tech} className={`${style['project__tech']}`}>
+                                        {tech}
+                                    </span>
+                                );
+                            })
+                        }
+                    </div>
                 </div>
             </section>
         </section>

@@ -43,10 +43,15 @@
         margin-top: 3rem;
     }
 
+    &:not(:first-of-type){
+        margin-top: 1.5rem;
+    }
+
     &__image{
         width: 100%;
         object-fit: contain;
         height: fit-content;
+        max-height: 33.75rem;
     }
 
     &__title{
