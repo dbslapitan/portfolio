@@ -1,9 +1,8 @@
 'use client';
 
-import { MutableRefObject, useContext, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useContext, useEffect, useRef } from 'react';
 import style from './about.module.scss';
 import { NavContext } from '@/utils/provider';
-import { lockfilePatchPromise } from 'next/dist/build/swc';
 
 export default function About(){
 
@@ -13,6 +12,17 @@ export default function About(){
 
     useEffect(() => {
         (aboutTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top + window.scrollY;
+
+        const resizeListener = (e: Event) => {
+            (aboutTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top + window.scrollY;
+        };
+
+        window.addEventListener('resize', resizeListener);
+
+        return () => {
+            window.removeEventListener('resize', resizeListener);
+        };
+
     }, [aboutTop]);
 
     return(

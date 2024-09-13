@@ -18,6 +18,16 @@ export default function Projects() {
 
     useEffect(() => {
         (projectsTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top + window.scrollY;
+
+        const resizeListener = (e: Event) => {
+            (projectsTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top + window.scrollY;
+        };
+
+        window.addEventListener('resize', resizeListener);
+
+        return () => {
+            window.removeEventListener('resize', resizeListener);
+        };
     }, [projectsTop]);
 
     return (
