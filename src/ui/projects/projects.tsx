@@ -60,7 +60,7 @@ export default function Projects() {
                     <Image className={`${style['project__image']} noise`} src={nomi} alt="NOMI gif" priority />
                 </div>
                 <div className={`${style['project__right']}`}>
-                    <p className={`${style['project__description']}`}>Industry project with Shopify: Collaborated with UX/UI designers, data scientists, and cybersecurity experts to develop a menu-based chatbot that supports merchants in streamlining product return processes, enhancing customer satisfaction.</p>
+                    <p className={`${style['project__description']}`}>BrainStation's industry project with Shopify: Collaborated with UX/UI designers, data scientists, and cybersecurity experts to develop a menu-based chatbot that supports merchants in streamlining product return processes, enhancing customer satisfaction.</p>
                     <div className={`${style['project__stack']}`}>
                         {
                             nomiStack.map(tech => {
