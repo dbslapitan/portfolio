@@ -12,7 +12,7 @@ export default function About(){
     const { aboutTop } = useContext(NavContext);
 
     useEffect(() => {
-        (aboutTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top;
+        (aboutTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top + window.scrollY;
     }, [aboutTop]);
 
     return(

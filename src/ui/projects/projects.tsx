@@ -17,7 +17,7 @@ export default function Projects() {
     const { projectsTop } = useContext(NavContext);
 
     useEffect(() => {
-        (projectsTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top;
+        (projectsTop as MutableRefObject<number>).current = (elementRef.current as HTMLDivElement).getBoundingClientRect().top + window.scrollY;
     }, [projectsTop]);
 
     return (
