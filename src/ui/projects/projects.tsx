@@ -4,15 +4,17 @@ import style from './projects.module.scss';
 import kanban from '../../../public/images/kanban.png';
 import nomi from '../../../public/images/nomi.gif';
 import profeng from '../../../public/images/profeng.png';
+import designo from '../../../public/images/designo.png';
 import Image from 'next/image';
 import { MutableRefObject, useContext, useEffect, useRef } from 'react';
 import { NavContext } from '@/utils/provider';
 
 export default function Projects() {
 
-    const kanbanStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'MongoDB', 'NextJS', 'Auth0'];
+    const kanbanStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'MongoDB', 'NextJS', 'Auth0', 'GCP App Engine'];
     const nomiStack = ['React', 'Javascript', 'NodeJS', 'Express', 'MySQL'];
     const profengStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'MongoDB', 'NextJS', 'OpenAI'];
+    const designoStack = ['React', 'TypeScript', 'NodeJS', 'Express', 'NextJS', 'Vercel'];
     const elementRef = useRef<HTMLElement>(null);
     const { projectsTop } = useContext(NavContext);
 
@@ -43,6 +45,27 @@ export default function Projects() {
                     <div className={`${style['project__stack']}`}>
                         {
                             kanbanStack.map(tech => {
+                                return (
+                                    <span key={tech} className={`${style['project__tech']}`}>
+                                        {tech}
+                                    </span>
+                                );
+                            })
+                        }
+                    </div>
+                    <a className={`${style['project__link']}`} href='https://kanban.dblapitan.dev' target='_blank'>Preview Site</a>
+                </div>
+            </section>
+            <section className={`${style['project']}`}>
+                <h3 className={`${style['project__title']}`}>Designo</h3>
+                <div className={`${style['project__left']}`}>
+                    <Image className={`${style['project__image']}`} src={designo} alt="Designo homepage screenshot" priority />
+                </div>
+                <div className={`${style['project__right']}`}>
+                    <p className={`${style['project__description']}`}>A huge e-commerce challenge from FrontendMentor designed to test frontend skill.</p>
+                    <div className={`${style['project__stack']}`}>
+                        {
+                            designoStack.map(tech => {
                                 return (
                                     <span key={tech} className={`${style['project__tech']}`}>
                                         {tech}
