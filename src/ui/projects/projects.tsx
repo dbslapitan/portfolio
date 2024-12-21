@@ -74,7 +74,7 @@ export default function Projects() {
                             })
                         }
                     </div>
-                    <a className={`${style['project__link']}`} href='https://kanban.dblapitan.dev' target='_blank'>Preview Site</a>
+                    <a className={`${style['project__link']}`} href='https://designo.dblapitan.dev/' target='_blank'>Preview Site</a>
                 </div>
             </section>
             <section className={`${style['project']}`}>
